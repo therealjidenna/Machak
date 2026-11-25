@@ -35,3 +35,10 @@ class ScanWorker(private val ctx: Context, params: WorkerParameters) :
             .setContentTitle("Machak found ${groups.size} duplicate groups")
             .setContentText("You can free ${Formatter.formatFileSize(ctx, extra)}")
             .setContentIntent(open)
+            .setAutoCancel(true)
+            .build()
+
+        nm.notify(1, n)
+        return Result.success()
+    }
+}
