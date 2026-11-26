@@ -425,7 +425,8 @@ fun MachakScreen(
     val apps = remember { AppsState() }
     val sec = remember { SecState() }
     val browse = remember { BrowseState() }
-    val titles = listOf("Clean", "Browse", "Apps", "Security")
+    val conn = remember { ConnState() }
+    val titles = listOf("Clean", "Browse", "Apps", "Security", "Connect")
 
     Column(
         modifier = Modifier
@@ -452,7 +453,8 @@ fun MachakScreen(
                     0 -> FilesTab(files, hasAccess, onGrantAccess, onAskNotifications)
                     1 -> BrowseTab(browse, hasAccess, onGrantAccess)
                     2 -> AppsTab(apps)
-                    else -> SecurityTab(sec)
+                    3 -> SecurityTab(sec)
+                    else -> ConnectionsTab(conn, onAskNotifications)
                 }
             }
         }
